@@ -1,26 +1,26 @@
-## 常用sql语句
+# 常用sql语句
 
-# 查看数据库
+## 查看数据库
 ```cpp
 show database;
 ```
 
-# 创建数据库
+## 创建数据库
 ```cpp
 create database database_name;
 ```
 
-# 切换数据库
+## 切换数据库
 ```cpp
 use database_name;
 ```
 
-# 查看某数据库中所有的数据表
+## 查看某数据库中所有的数据表
 ```cpp
 show table;
 ```
 
-# 创建数据表
+## 创建数据表
 ```cpp
 CREATE TABLE my_table (
     name VARCHAR(20),
@@ -32,12 +32,12 @@ CREATE TABLE my_table (
 );
 ```
 
-#查看数据表结构
+## 查看数据表结构
 ```cpp
 describe  table_name;  --缩写: desc
 ```
 
-# 查看数据表中的记录
+## 查看数据表中的记录
 ```cpp
 select  *  from  table_name;
 
@@ -45,7 +45,7 @@ select  *  from  table_name;
 select distinct name from table_name
 ```
 
-# 往数据表中添加数据记录
+## 往数据表中添加数据记录
 ```cpp
 INSERT INTO table_name
 VALUES('puffball','Diane','hanst','f','1999-03-23',NULL);
@@ -54,17 +54,17 @@ VALUES('puffball','Diane','hanst','f','1999-03-23',NULL);
 insert into user3 (name) value('asfjl');
 ```
 
-# 删除数据
+## 删除数据
 ```cpp
 delete from table_name where name='puffball';
 ```
 
-# 修改数据
+## 修改数据
 ```cpp
 update table_name set name='wang' where owner='haha'
 ```
 
-# 建表约束--主键
+## 建表约束--主键
 ```cpp
 create table user(
     id int primary key,
@@ -93,7 +93,7 @@ alter table user4 drop primary key;
 alter table user4 modify id int primary key;
 ```
 
-# 建表约束--自增
+## 建表约束--自增
 ```cpp
 create table user3(
     id int primary key auto_increment,
@@ -101,7 +101,7 @@ create table user3(
 );
 ```
 
-# 建表约束--唯一：约束修饰的字段的值不可以重复
+## 建表约束--唯一：约束修饰的字段的值不可以重复
 ```cpp
 create table user5(
     id int,
@@ -124,7 +124,7 @@ alter table user5 drop index name
 alter table user5 modify name varchar(20) unique;
 ```
 
-# 非空约束：修饰的字段不能为NULL
+## 非空约束：修饰的字段不能为NULL
 ```cpp
 create table user6(
     id int,
@@ -134,7 +134,7 @@ create table user6(
 insert into user6 (name) value('jfsl');
 ```
 
-# 默认约束
+## 默认约束
 ```cpp
 create table user7(
     id int,
@@ -146,7 +146,7 @@ create table user7(
  insert into user7 (id,name,age) values(1,'slsfj',5);
 ```
 
-# 外键约束
+## 外键约束
 ```cpp
 create table classes(
     id int primary key,
@@ -159,7 +159,7 @@ create table students(
  );
  ```
  
- # 多表查询
+ ## 多表查询
  ```cpp
  -- 两表查询
 select sname,cno, degree from student,score
@@ -171,7 +171,7 @@ where student.sno = score.sno
 and course.cno = score.cno;
 ```
 
-# 分组查询
+## 分组查询
 ```cpp
 -- 子查询加分组求评均
 select cno, avg(degree) from score
@@ -182,7 +182,7 @@ group by cno;
 select * from student where year(sbirthday) in (select year(sbirthday) from student where sno in (108,117));
 ```
 
-# 多层嵌套查询
+## 多层嵌套查询
 -- 
 select tno from teacher where tname='zhang';
 -- 
@@ -194,7 +194,7 @@ select * from score where cno=()
 select * from score where cno=(select cno from course where tno =(select tno from reacher where tname='zhang'));
 ```
 
-# union与not in
+## union与not in
 ```cpp
 -- not in
 select prof from teacher where depart='电子工程系';
@@ -209,7 +209,7 @@ union
 select * from teacher where depart='电子工程系' and prof not in (select prof from teacher where depart='计算机系');
 ```
 
-# any与all
+## any与all
 ```cpp
 -- any表示至少一个
 select * from score where cno='34'
