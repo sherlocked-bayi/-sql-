@@ -1,7 +1,7 @@
 # 常用sql语句
 
 ## 查看数据库
-```cpp
+```sql
 show database;
 ```
 
@@ -183,7 +183,7 @@ select * from student where year(sbirthday) in (select year(sbirthday) from stud
 ```
 
 ## 多层嵌套查询
--- 
+ 
 select tno from teacher where tname='zhang';
 -- 
 select cno from course where tno = (select tno from teacher where tname='zhang');
